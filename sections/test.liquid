@@ -1,0 +1,34 @@
+{% for block in section.blocks %}
+    {% assign b = block.settings %}
+    <section {{ block.shopify_attributes }}>
+        <img src="{{b.image | img_url }}">
+    </section>
+{% endfor %}
+
+{% schema %}
+{
+    "name": "Landing Page Hero",
+    "blocks": [{
+        "name" : "Landing Page Hero",
+        "type": "Hero",
+        "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Name of the landing page"
+        },
+        {
+            "type": "page",
+            "id": "page_handle",
+            "label": "The page where this hero is shown"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Choose an image"
+        }
+        ]
+    }
+    ]
+}
+{% endschema %}
